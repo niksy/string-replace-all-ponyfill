@@ -4,7 +4,7 @@
 [![BrowserStack Status][browserstack-img]][browserstack]
 
 [`String.prototype.replaceAll`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll)
-ponyfill.
+[ponyfill](https://ponyfill.com).
 
 > The `replaceAll()` method returns a new string with all matches of a pattern
 > replaced by a replacement. The pattern can be a string or a `RegExp`, and the
