@@ -15,8 +15,6 @@ export default function (stringToReplace, searchValue, replaceValue) {
 		throw new TypeError('Expected a string');
 	}
 
-	const replacer = replaceValue ?? typeof replaceValue;
-
 	if (searchValue instanceof RegExp) {
 		const { flags } = searchValue;
 		if (flags.indexOf('g') === -1) {
@@ -24,11 +22,11 @@ export default function (stringToReplace, searchValue, replaceValue) {
 				'`String.prototype.replaceAll` ponyfill called with a non-global RegExp argument'
 			);
 		}
-		return stringToReplace.replace(searchValue, replacer);
+		return stringToReplace.replace(searchValue, replaceValue);
 	}
 
 	if (searchValue === '') {
-		const value = stringToReplace.replace(emptyStringRegex, replacer);
+		const value = stringToReplace.replace(emptyStringRegex, replaceValue);
 		emptyStringRegex.lastIndex = 0;
 		return value;
 	}
@@ -38,6 +36,6 @@ export default function (stringToReplace, searchValue, replaceValue) {
 
 	return stringToReplace.replace(
 		new RegExp(escapeStringRegexp(stringToFind), 'g'),
-		replacer
+		replaceValue
 	);
 }

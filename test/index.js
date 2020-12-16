@@ -19,6 +19,8 @@ it('replaces all occurences of string', function () {
 
 it('handles non-primitive replacer', function () {
 	assert.equal(replaceAll('foo', 'o', {}), 'f[object Object][object Object]');
+	assert.equal(replaceAll('foo', 'o', null), 'fnullnull');
+	assert.equal(replaceAll('foo', 'o', false), 'ffalsefalse');
 });
 
 it('handles non-primitive search value', function () {
