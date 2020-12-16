@@ -5,6 +5,7 @@
 ### Fixed
 
 -   Handle non-primitive replacers
+-   Use `global` instead of `flags` property on `RegExp` instance to handle IE11
 
 ## [1.0.0][] - 2020-12-15
 

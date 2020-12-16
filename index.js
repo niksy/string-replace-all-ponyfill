@@ -16,8 +16,8 @@ export default function (stringToReplace, searchValue, replaceValue) {
 	}
 
 	if (searchValue instanceof RegExp) {
-		const { flags } = searchValue;
-		if (flags.indexOf('g') === -1) {
+		const { global: globalFlag } = searchValue;
+		if (!globalFlag) {
 			throw new TypeError(
 				'`String.prototype.replaceAll` ponyfill called with a non-global RegExp argument'
 			);

@@ -95,10 +95,13 @@ it('works if search value is a RegExp with a global flag', function () {
 });
 
 it('throws a TypeError if search value is a RegExp without a global flag', function () {
-	/* eslint-disable no-undefined */
 	assert.throws(function () {
 		replaceAll('origami.origami.origami', /\./, 'fox');
-	}, TypeError);
+	}, /TypeError: .+ ponyfill called with a non-global RegExp argument/);
+});
+
+it('throws a TypeError if string to search is not string', function () {
+	/* eslint-disable no-undefined */
 	assert.throws(() => replaceAll(null, 'a', 'b'), TypeError);
 	assert.throws(() => replaceAll(undefined, 'a', 'b'), TypeError);
 	assert.throws(() => replaceAll({}, 'bject', 'lolo'), TypeError);
