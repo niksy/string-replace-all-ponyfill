@@ -2,6 +2,10 @@
 
 ## [Unreleased][]
 
+### Added
+
+-   Named export `preferNative`
+
 ### Fixed
 
 -   Handle non-primitive replacers

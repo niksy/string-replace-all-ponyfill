@@ -1,5 +1,5 @@
 import assert from 'assert';
-import replaceAll from '../index';
+import replaceAll, { preferNative } from '../index';
 
 before(function () {
 	window.fixture.load('/test/fixtures/index.html');
@@ -109,4 +109,8 @@ it('throws a TypeError if string to search is not string', function () {
 
 it('matches `String.prototype.replace` with a global RegExp functionality when used with same arguments', function () {
 	assert.equal(replaceAll('abcabc', /a/g, 'z'), 'abcabc'.replace(/a/g, 'z'));
+});
+
+it('uses native implementation if it’s available', function () {
+	assert.equal(preferNative('origami', 'i', 'a'), 'oragama');
 });

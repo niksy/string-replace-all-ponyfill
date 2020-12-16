@@ -10,7 +10,7 @@ const emptyStringRegex = /(?:)/g;
  * @returns {string}
  * @throws {TypeError}
  */
-export default function (stringToReplace, searchValue, replaceValue) {
+export default function ponyfill(stringToReplace, searchValue, replaceValue) {
 	if (typeof stringToReplace !== 'string') {
 		throw new TypeError('Expected a string');
 	}
@@ -39,3 +39,11 @@ export default function (stringToReplace, searchValue, replaceValue) {
 		replaceValue
 	);
 }
+
+export const preferNative = (string, ...arguments_) => {
+	if (typeof String.prototype.replaceAll !== 'undefined') {
+		return string.replaceAll(...arguments_);
+	}
+	/* istanbul ignore next */
+	return ponyfill(string, ...arguments_);
+};

@@ -1,5 +1,5 @@
 {
-	"presets": [["@babel/preset-env", { "modules": false }]],
+	"presets": [["@babel/preset-env", { "modules": false, "loose": true }]],
 	"plugins": [
 		"@babel/plugin-transform-member-expression-literals",
 		"@babel/plugin-transform-property-literals",
@@ -13,7 +13,8 @@
 					{
 						"modules": false,
 						"useBuiltIns": "usage",
-						"corejs": 2
+						"corejs": 2,
+						"loose": true
 					}
 				]
 			],
