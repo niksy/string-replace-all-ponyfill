@@ -49,6 +49,19 @@ it('works with a functional replacer', function () {
 		return 'c';
 	});
 	assert.equal(resultTwo, 'acca');
+
+	const resultThree = replaceAll(
+		'origami abba origami abba',
+		/a(bb)a/g,
+		(search, match, index, string) => {
+			assert.equal(search, 'abba');
+			assert.equal(match, 'bb');
+			assert.ok([8, 21].includes(index));
+			assert.equal(string, 'origami abba origami abba');
+			return 'c';
+		}
+	);
+	assert.equal(resultThree, 'origami c origami c');
 });
 
 it('replaces with `undefined` if replacer is not given', function () {
