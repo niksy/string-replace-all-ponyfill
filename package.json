@@ -1,6 +1,6 @@
 {
   "name": "string-replace-all-ponyfill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "`String.prototype.replaceAll` ponyfill.",
   "license": "MIT",
   "author": "Ivan Nikolić <niksy5@gmail.com> (http://ivannikolic.com)",
